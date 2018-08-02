@@ -1,17 +1,19 @@
-.title {
-    text-align: center;
-    margin-top: 10vh;
-    margin-bottom: 2vh;
-}
-
-.disc-logo {
-    display: block;
-    margin: 5vh auto;
-    width: 30vw;
-}
-
-.tip {
-    font-size: 1.6vw;
-    color: #777;
-    margin: 3vh 0;
+.content {
+    & .title {
+        width: 100%;
+        text-align: center;
+        margin-top: 0;
+    }
+    
+    & .disc-logo {
+        display: block;
+        margin: 20px auto;
+        width: 30vw;
+    }
+    
+    & .tip {
+        font-size: 1.6vw;
+        color: #777;
+        margin: 20px 0;
+    }
 }

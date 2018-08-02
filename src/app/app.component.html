@@ -1,4 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container-fluid">
-  <router-outlet></router-outlet>
-</div>
+<nz-layout class="layout">
+  <nz-header>
+    <a routerLink='/'><nz-avatar nzSrc="assets/images/disc-logo-quad.png"> style="vertical-align: middle;"></nz-avatar></a>
+    <span class="title">DISC职业性格测评</span>
+  </nz-header>
+  <nz-content><router-outlet></router-outlet></nz-content>
+  <nz-footer>@2018 萧邦之殇版权所有</nz-footer>
+</nz-layout>
