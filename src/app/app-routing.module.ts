@@ -7,7 +7,7 @@ import { CanActivateGuard } from './service/gurd/canActivate.service';
 
 
 const appRoutes: Routes = [
-  {path: 'result', component: ResultComponent , canActivate: [CanActivateGuard]},
+  {path: 'result', component: ResultComponent}, // , canActivate: [CanActivateGuard]
   {path: 'question', component: QuestionComponent },
   {path: '', component: HomeComponent},
 ];

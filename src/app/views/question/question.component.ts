@@ -1,31 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from '../../service/';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements OnInit, OnDestroy {
 
   curItem = 0;
-  questions: any[];
-  question: string[];
+  questions = [];
+  question = [];
   answers = [];
+
+  ngxQuestionsSub: Subscription;
 
   constructor(
     private questionService: QuestionService,
-    private route: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit() {
-    this.questionService.loadQuestions()
+    this.ngxQuestionsSub = this.questionService.loadQuestions()
     .subscribe(data => {
       this.questions = data as any;
       this.question = this.questions[this.curItem];
-      console.log(this.question);
     });
   }
 
@@ -38,6 +39,10 @@ export class QuestionComponent implements OnInit {
     } else {
       this.question = this.questions[this.curItem];
     }
+  }
+
+  ngOnDestroy() {
+    this.ngxQuestionsSub.unsubscribe();
   }
 
 }

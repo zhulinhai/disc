@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, merge } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class QuestionService {
     this.answers.push(index);
   }
 
-  reusltList() {
+  reuslt(): Observable<any> {
     return this.http.get('assets/data/result.json');
   }
 
