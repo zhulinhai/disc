@@ -29,8 +29,8 @@ export class ResultComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.qusetionService.reuslt().subscribe(data => {
-      // console.log(data);
+    this.qusetionService.reuslt((result) => {
+      console.log('hello');
     });
   }
 
